@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style type="text/css">
+	body {
+    font-family: 'Julius Sans One';
+    background-color: #404040;
+    color: #F0F8FF
+  }
+   p{
+   	color:black;
+   }
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #00FFFF;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  height:300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+
+<body>
+
+<div id="main" class="w3-container">
+  
+  <h2>W3.CSS Modal</h2>
+   
+  <p>In this example we demonstrate how to close the modal by clicking outside of the modal box.</p>
+
+  <button class="w3-button w3-xlarge w3-circle w3-teal w3-right" onclick="myFunction()">+</button>
+  
+  <button id="button01" class="button" style="vertical-align:middle"  onclick="openN('id01')"><span>School</span></button>
+  <div id="id01" contentEditable="fasle"  class="w3-modal w3-animate-zoom">
+    <div id= "border01" style="border-style: none; border-color: none; " class="w3-modal-content w3-card-4">
+      <header  class="w3-container w3-teal"> 
+        <span onclick="closeN('id01')" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="editable('id01');editbord('border01')" class="w3-button w3-display-bottomright">&#9881;</span>
+        <h2 id="header01">Modal Header</h2>
+      </header>
+      <div class="w3-container">
+        <p>You have two options to close this modal:</p>
+        <p>Click on the "x" or click anywhere outside of the modal!</p>
+      </div>
+      <footer class="w3-container w3-teal">
+        <p>Modal Footer</p>
+      </footer>
+    </div>
+  </div>
+
+
+<button id="button02"class="button" style="vertical-align:middle"  onclick="openN('id02')"><span>Open Modal2 </span></button>
+  <div id="id02" contentEditable="false" class="w3-modal w3-animate-zoom">
+    <div id="border02" style="border-style:none; border-color: none;" class="w3-modal-content w3-card-4">
+      <header class="w3-container w3-aqua" > 
+        <span onclick="closeN('id02')" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="editable('id02'); editbord('border02')"; //updatebutton(button02,header02);" class="w3-button w3-display-bottomright">&#9881;</span>
+        <h2 id="header02">Modal Header 2</h2>
+      </header>
+      <div class="w3-container">
+        <p>You have 89 options to close this modal:</p>
+        <p>Click on the "x" or click anywhere outside of the modal!</p>
+      </div>
+      <footer class="w3-container w3-teal">
+        <p>Modal Footer</p>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var modal ;
+var borderedit;
+var editElem;
+function openN(kev) {
+	document.getElementById(kev).style.display='block';
+	modal = document.getElementById(kev);
+}
+function closeN(kev) {
+	document.getElementById(kev).style.display='none';
+}
+function editable(kev){
+	editElem = document.getElementById(kev);
+
+	if (editElem.contentEditable == "true"){
+		editElem.contentEditable = "false";
+	}
+	else {
+		editElem.contentEditable = "true";
+	}
+}
+function editbord(kev){
+	borderedit=document.getElementById(kev);
+	if (borderedit.style.borderStyle =="dashed"){
+		borderedit.style.borderStyle="none";
+		borderedit.style.borderColor="none";
+	}
+	else {
+		borderedit.style.borderStyle="dashed";
+		borderedit.style.borderColor="#000000";	
+	}
+}
+function rem(kev){
+
+	var parent = document.getElementById("main");
+	var child = document.getElementById(kev);
+	parent.removeChild(child);
+
+}
+function rembutton(kev){
+	var parent = document.getElementById("main");
+	var child = document.getElementById(kev);
+	parent.removeChild(child);
+}
+// function updatebutton(kev, rub){
+// 	var button=document.getElementById(kev);
+// 	var text = document.getElementById.innerHTML(rub);
+// 	button.innerHTML =  text;
+// }
+
+var counter =3;
+function myFunction() {
+	
+	var string ="ID0" +counter;
+	var borderid="border0"+counter;
+	var buttonID = "button0" + counter;
+	var headerid = "header0" +counter;
+
+	//button
+  var button  = document.createElement("button");
+  button.setAttribute("class","button");
+  button.setAttribute("id" , buttonID)
+  button.setAttribute("style","vertical-align:middle");
+  button.onclick = function() {openN(string)};
+  var span = document.createElement('span');
+  span.textContent = "Modal " +string;
+  button.appendChild(span);
+  document.getElementById("main").appendChild(button);
+
+
+  //main container
+  var div1 = document.createElement("div"); //main div
+  div1.setAttribute("id",string);
+  div1.setAttribute("contentEditable","false")
+  div1.setAttribute("class","w3-modal w3-animate-zoom");
+  
+
+
+  // contains header and paragraphs
+  var div2 = document.createElement("div"); 
+  div2.setAttribute("id",borderid);
+  div2.setAttribute("style","border-style: none");
+  div2.setAttribute("style","border-color: none");
+  div2.setAttribute("class","w3-modal-content w3-card-4");
+
+	
+  //contains header
+  var header = document.createElement("header"); 
+  header.setAttribute("class","w3-container w3-teal");
+  //close button
+  var close = document.createElement("span");
+  close.setAttribute("class","w3-button w3-display-topright")
+  close.innerHTML="&times;";
+  close.onclick = function() {closeN(string)};
+  //edit button
+  var edit = document.createElement("span");
+  edit.setAttribute("class","w3-button w3-display-bottomright");
+  edit.innerHTML="&#9881";
+  edit.onclick = function() {editable(string);editbord(borderid);};
+  //delete button
+  var del = document.createElement("span");
+  del.setAttribute("class","w3-button w3-display-bottommiddle");
+  del.innerHTML= "DELETE";
+  del.onclick = function() {rem(string);rembutton(buttonID);updatebutton(buttonID,headerid);};
+
+
+  header.appendChild(del);
+  header.appendChild(close);
+  header.appendChild(edit);
+  
+  var h2 = document.createElement("h2"); //contains header text
+  h2.setAttribute("id",headerid);
+  h2.innerHTML = "I am Modal" +counter;
+  header.appendChild(h2);
+  div2.appendChild(header);
+  
+
+  var div3 = document.createElement("div"); // to hold paragraphs
+  div3.setAttribute("class","w3-container");
+  
+   var p1 = document.createElement("p");
+   var p2 = document.createElement("p");
+   p1.innerHTML = "You have 89 options to close this modal:";
+   p2.innerHTML = "Click on the x or click anywhere outside of the modal!";
+  
+  div3.appendChild(p1);
+  div3.appendChild(p2);
+  div2.appendChild(div3);
+  
+
+  var footer = document.createElement("footer");
+  footer.setAttribute("class","w3-container w3-teal");
+  var footerp = document.createElement("p");
+  footerp.innerHTML="Footer";
+  footer.appendChild(footerp);
+  div2.appendChild(footer);
+  
+
+  div1.appendChild(div2);
+  document.getElementById("main").appendChild(div1);
+  counter =counter +1;
+}
+
+
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
