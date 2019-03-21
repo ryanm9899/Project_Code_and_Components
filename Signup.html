@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Signup</title>
+ </head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <body>
+	<div class="container">
+  	<h1>Signup</h1>
+  	<br>
+  		<form action="/action_page.php">
+    		<div class="form-group">
+      			<label for="Username"><span style="font-weight:bold">Username</span></label>
+      			<input type="Username" class="form-control" id="Username" placeholder="Enter Username" name="Username">
+    		</div>
+    		<div class="form-group">
+      			<label for="password"><span style="font-weight:bold">Password</span></label>
+      			<input type="password" class="form-control" id="password" placeholder="Password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])">
+    		</div>
+        <p>Password must be 6-20 characters long, and must contain atleast 1 lowercase letter, 1 uppercase letter, and 1 number.</p>
+        <script>
+    function passwordSetup()
+    {
+      var passwordTest = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
+      var userPassword = document.getElementById("password").value;
+      passwordCheck(passwordTest, userPassword);
+    }
+        function passwordCheck(passwordTest, userPassword)
+        {
+          if(passwordTest.test(userPassword) == false || (userPassword.length < 6 || userPassword.length > 20))
+          {
+            window.alert("Please make sure your password is between 6 and 20 characters long and has atleast 1 lowercase letter, 1 uppercase letter, and 1 number.");
+          }
+          else
+          {
+            //save username and password to database
+            window.location.href = "Login.html";
+          }
+        }
+        </script>
+        <button type="submit" style="background-color:blue;color:white;" onClick="passwordSetup();" class="btn btn-default">Signup</button>
+  		</form>
+	</div>
+ </body>
+</html>
