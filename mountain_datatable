@@ -1,0 +1,1 @@
+CREATE TABLE mountains(id SERIAL PRIMARY KEY, mountain VARCHAR(50), img VARCHAR(200));
