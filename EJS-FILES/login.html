@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Login</title>
+  <style>
+    body{
+     background-color: black;
+     color: white; 
+    }
+  </style>
+ </head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 
+ <body style="background-color: #262626; color: white;font-family: 'Ubuntu', sans-serif;">
+  <div class="container">
+    <div class ="jumbotron" style="background-color: #666666"> 
+    <h1 class = "display-4">Login</h1>
+    <p id= "authenticate"class = "lead">
+     
+      Please enter Username and password to verify account.
+
+
+
+
+    </p>
+    <hr class="my-4">
+      <form action="/login/verify" method ="get">
+        <div class="form-group">
+            <label for="Username"><span style="font-weight:bold">Username</span></label>
+            <input type="username" class="form-control" id="username" placeholder="Enter Username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password"><span style="font-weight:bold">Password</span></label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        </div>
+        <button type="submit" style="background-color:#262626;color:white;" class="btn btn-default">Verify</button>
+      </form>
+      
+      
+  </div>
+  
+      
+ </body>
+</html>

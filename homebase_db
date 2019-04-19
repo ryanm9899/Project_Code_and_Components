@@ -1,8 +1,15 @@
 CREATE TABLE IF NOT EXISTS to_do_lists (
 user_id integer REFERENCES login_info(id), event_name VARCHAR(50), event_description VARCHAR(200), event_date DATE, CONSTRAINT event_id PRIMARY KEY(user_id, event_name));
 
-CREATE TABLE IF NOT EXISTS bookmarks (
-user_id integer REFERENCES login_info(id), bookmark_section_name VARCHAR(50), bookmark_section_description VARCHAR(200), bookmark_hyperlinks TEXT[], bookmark_names TEXT[], CONSTRAINT id PRIMARY KEY(user_id, bookmark_section_name));
 
 CREATE TABLE IF NOT EXISTS login_info (
-id SERIAL PRIMARY KEY, username VARCHAR(20), password VARCHAR(20)); 
+id SERIAL PRIMARY KEY, username VARCHAR(20) unique, password VARCHAR(20)); 
+
+CREATE TABLE IF NOT EXISTS bookmarks (
+user_id integer REFERENCES login_info(id), bookmark_section_name VARCHAR(50), bookmark_section_description VARCHA\dR(200), bookmark_hyperlinks TEXT[], bookmark_names TEXT[], CONSTRAINT id PRIMARY KEY(user_id, bookmark_section_name));
+
+
+
+
+
+

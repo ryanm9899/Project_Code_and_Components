@@ -1,0 +1,399 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Question 1</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="login.css">
+  <script type="text/javascript" src="./login.js"></script>
+  <style>
+    body {
+    font-family: 'Varela Round', sans-serif;
+}
+.modal-login {    
+    color: #636363;
+    width: 350px;
+    
+
+}
+.modal-login .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.modal-login .modal-header {
+    border-bottom: none;   
+    position: relative;
+    justify-content: center;
+}
+.modal-login h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+}
+.modal-login .form-control:focus {
+    border-color: #70c5c0;
+}
+.modal-login .form-control, .modal-login .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+}
+.modal-login .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+} 
+.modal-login .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    justify-content: center;
+    margin: 0 -20px -20px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.modal-login .modal-footer a {
+    color: #999;
+}   
+.modal-login .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #60c7c1;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-login .avatar img {
+    width: 100%;
+}
+.modal-login.modal-dialog {
+    margin-top: 80px;
+}
+.modal-login .btn {
+    color: #fff;
+    border-radius: 4px;    
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+}
+.modal-login .btn:hover, .modal-login .btn:focus {
+    background: #45aba6;
+    outline: none;
+}
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+}
+
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+</style>
+</head>
+
+<body  style="background-color: #262626; color: white;font-family: 'Ubuntu', sans-serif;">
+  <div class="jumbotron jumbotron-fluid" style="background-color: #666666">
+    <div class="container" style="background-color: #666666">
+      <h1 style="text-align: center">Final Project</h1>
+    </div>
+  </div>
+
+  <br /><br /><br /><br />
+  <!-- Button to click to show the modal-->
+  <div class="text-center">
+    <a href="#myModal" class="btn btn-info" data-toggle="modal" style="background-color:#262626;color:white;" onclick="openModal()">Sign Up</a><br/><br/>
+      <form action="/login" method="get">
+        <button style="background-color:#262626;color:white;"class="btn btn-info" >Log In</button>
+      </form>
+  </div>
+
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade" >
+    <div class="modal-dialog modal-login" >
+      <div class="modal-content" style="background-color: #666666; color:white" >
+        <div class="modal-header" style="background-color: #666666">
+          <div class="avatar">
+            <img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+          </div>
+          <h4 class="modal-title">Sign Up page</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body" style="background-color: #666666">
+          <form action="/login_main/add" method="post">
+          <div class="form-group">
+            <input type="text" for="username" class="form-control" name="username" placeholder="username"
+              required="required">
+          </div>
+          
+          <div class="form-group" style="background-color: #666666">
+            <input id="psw" for="password" type="password" class="form-control" name="password" placeholder="Password"
+              required="required">
+          </div>
+          <div class="form-group" style="background-color: #666666">
+            <input id="cpsw" type="password" class="form-control" name="confirm password"
+              placeholder="Confirm Password" required="required">
+          </div>
+          <div class="form-group" style="background-color: #666666">
+            <button id="my_submit_button" class="btn btn-primary btn-block login-btn" disabled
+              onClick="onClickFunction()">Sign Up</button>
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer" style="background-color: #666666">
+          <div id="message" style="display:block" style="background-color: #666666">
+            <h3>Password must contain the following:</h3>
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            <p id="match" class="invalid">Password and Confirm Password Match</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+   <% 
+      console.log(data);
+      if (data) { 
+          var buttons = '';
+        data.forEach(function(item){
+             buttons += '<p>' + item.username + '</p>'  +'<p>' +item.password +'</p>';
+            
+           }); %>
+           <%- buttons %> 
+      <% } %>
+
+
+      <% 
+      
+      var nothing = 'alert("User exists")';
+      
+      if (user_info != '') { 
+
+        var buttons = '';
+        var blank='good';
+        
+       user_info.forEach(function(item){
+             buttons += '<p>' + item.username + '</p>'  +'<p>' +item.password +'</p>';
+            
+            
+
+        }); %>
+
+           <%- nothing %> 
+      <% }
+
+      else {
+      %>
+      <%- blank %> 
+    <%}%>
+
+  <script type="text/javascript">
+  function openModal() {
+    /* Note that you do NOT have to do a document.getElementById anywhere in this exercise. Use the elements below */        
+    var myInput = document.getElementById("psw");
+    var confirmMyInput = document.getElementById("cpsw");
+  var letter = document.getElementById("letter");
+  var capital = document.getElementById("capital");
+  var number = document.getElementById("number");
+  var length = document.getElementById("length");    
+    var match = document.getElementById("match");
+
+
+  // When the user starts to type something inside the password field
+  myInput.onkeyup = function() {
+       console.log('helllooo')
+        
+        /* TODO: Question 1.1: Starts here */
+        var lowerCaseLetters = /[a-z]/g; // : Fill in the regular experssion for lowerCaseLetters
+        var upperCaseLetters = /[A-Z]/g; // : Fill in the regular experssion for upperCaseLetters
+        var numbers = /[0-9]/g; // : Fill in the regular experssion for digits
+        var minLength = 8; // : Change the minimum length to what what it needs to be in the question 
+        /* TODO: Question 1.1: Ends here */
+        
+
+        /* TODO: Question 1.2:  Starts here */
+         /*
+         - So first read up on classList.  
+         - Perform a console.log(letter.classList) and check the array that you see. By default the first time, there should be just 1 element and it should be
+         "invalid". "invalid" is a class that is present in login.css. 
+         - Below, there are a bunch of if blocks and else blocks.
+         - Each if block means that some successful condition is satisfied for our password conditon. So the red cross need to be converted to a check mark.
+         - Each else block stands for a failed condition, so the green check mark needs to be a red cross again.
+         - All that you need to do is, in each of the blocks, fill in the correct classNames for the remove and the add methods.
+         */
+
+        // Validate lowercase letters
+        console.log(letter.classList)
+        if(myInput.value.match(lowerCaseLetters)) {             
+            letter.classList.remove("invalid"); 
+            letter.classList.add("valid"); 
+        } else {
+            letter.classList.remove("valid"); 
+            letter.classList.add("invalid"); 
+        }
+
+        // Validate capital letters        
+        if(myInput.value.match(upperCaseLetters)) { 
+            capital.classList.remove("invalid"); 
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers        
+        if(myInput.value.match(numbers)) { 
+            number.classList.remove("invalid"); 
+            number.classList.add("valid"); 
+        } else {
+            number.classList.remove("valid"); 
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if(myInput.value.length >= minLength) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+        /* TODO: Question 1.2:  Ends here */
+    }
+    /* TODO Question 1.3: Starts here */
+    confirmMyInput.onkeyup = function() {
+                // Validate password and confirmPassword
+                var passEqualsConfPass = (document.getElementById("psw").value==document.getElementById("cpsw").value); // TODO: Change this to the condition that needs to be checked so that the text entered in password equals the text in confirm password
+                if(passEqualsConfPass) { 
+                    match.classList.remove("invalid"); 
+                    match.classList.add("valid"); 
+                } else {
+                    match.classList.remove("valid"); 
+                    match.classList.add("invalid"); 
+                }        
+    /* TODO Question 1.3: Starts here */
+
+                // Disable or Enable the button based on the elements in classList
+                enableButton(letter, capital, number, length, match);
+    }
+}
+
+
+function enableButton(letter, capital, number, length, match) {
+    // TODO: Clear this function for students to implement    
+    var button = document.getElementById('my_submit_button');
+    var condition = (letter.classList.contains("valid") && capital.classList.contains("valid") && number.classList.contains("valid") && length.classList.contains("valid") && match.classList.contains("valid")); // TODO: Replace false with the correct condition
+
+    if(condition) {       
+            button.disabled = false;
+        }
+    else{
+            button.disabled = true;
+        }        
+    }    
+
+
+function onClickFunction() {
+    
+<% 
+      
+      var nothing = 'User Exists!';
+      
+      if (user_info != '') { 
+
+        var buttons = '';
+        var blank='good';
+        
+       user_info.forEach(function(item){
+             buttons += '<p>' + item.username + '</p>'  +'<p>' +item.password +'</p>';
+            
+            
+
+        }); %>
+
+           alert("Account Created! Please use login in button below.") ;
+      <% }
+
+      else {
+      %>
+       alert("User Exists. PLease select a different username");
+    <%}%>
+    
+}
+
+</script>
+
+</body>
+</html>
