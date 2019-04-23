@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>ADD</title>
+  <style>
+    
+
+.card {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: black;
+  opacity: .9;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  height:250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+
+
+}
+    .card:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.05); 
+}
+#appe{
+    color:white;
+    opacity: 0;
+    transition: all 0.2s;
+      cursor: grab;
+
+}
+.card:hover #appe{
+    opacity: 1;
+    color:white;
+      cursor: grab;
+
+}
+.card-img-top {
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+}
+  </style>
+ </head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 
+ <body style="background-color: #262626; color: white;font-family: 'Ubuntu', sans-serif;">
+  <div class="container">
+    <div class ="jumbotron" style="background-color: #666666"> 
+    <h1 class = "display-4">Login</h1>
+    <p id= "authenticate"class = "lead">
+     
+      Please select mountain you wish to add. 
+
+
+
+
+    </p>
+    <hr class="my-4">
+      
+      <form class="form" action="/add_mtn/add" method="get">
+        <input type="hidden" id="user_id" name="username" value="<%-user_name%>">
+            <select class="custom-select" name="mountain_choice" onchange="this.form.submit()">
+               
+               
+               <%
+                console.log(stuff);
+                if(stuff){
+                var nam= '';
+                stuff.forEach(function(item){
+                nam += '<option value=' +item.id+ '>'
+                nam += item.mountain + '</option>';
+                });%>
+                <%-nam %>
+                <%}%>
+            </select>
+</form>
+      
+  </div>
+</div>
+  <%
+                console.log(stuff);
+                
+                if(stuff){
+                var card= '';
+                console.log(user_name);
+                var image = "../resources/img/" +pic;
+
+                card += '<div class="card" style="vertical-align: middle;text-align: center;background-color: black;" > <img class="card-img-top" src='+ image+'> <h1 style="vertical-align: center" class="card-text">1</h1></div>';
+                
+
+                var hh = '<input type="hidden" id="user_id" name="username" value="'+ user_name+'">';
+                var hhh = '<input type="hidden" id="user_id" name="mountain_choice" value="'+ mount+'">';
+        
+                var button='<p style="color: green;"> Account Verified.  </p> <br><form action= "/main_page/addition" method="post"><button type="submit" style="background-color:green;color:white;" class="btn btn-default">ADD  ' + mountain_array+'</button>'+hh+hhh +'</form>';
+                %>
+                <%-card %>
+                <%-button %>
+                <%}%>
+
+
+        
+      
+ </body>
+</html>

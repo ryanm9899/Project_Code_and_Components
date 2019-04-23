@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<style type="text/css">
+  body {
+    font-family: 'Julius Sans One';
+    
+    background-color: #404040;
+    color: #F0F8FF
+  }
+  body, html {
+  height: 100%;
+  }
+  .boxed{
+    border:1px solid black;
+
+  }
+  .hero-image { 
+  /* The image used */
+  background-image: url("../resources/img/mountains.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+   p{
+    color:black;
+   }
+.card {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+  opacity: .9;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  height:250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+
+
+}
+.card:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.05); 
+}
+#appe{
+    color:black;
+    opacity: 0;
+    transition: all 0.2s;
+      cursor: grab;
+
+}
+.card:hover #appe{
+    opacity: 1;
+    color:black;
+      cursor: grab;
+
+}
+.card-img-top {
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+}
+
+
+.head , .w3-container , .pclass {
+  display:block;
+}
+
+</style>
+
+<body>
+<div class='hero-image'>
+<div id="main" class="w3-container">
+  
+  <h2>Ski Slopes</h2>
+   
+
+
+  
+
+  
+  <br><br><br><br>
+
+  <!-- <div id="button01" class="card" style="vertical-align:middle;"  >
+    <div onclick="rem('id02')" class="w3-button w3-display-topright" style="z-index: -1">&times;</div>
+    <img class="card-img-top"   src="../resources/img/vail.png" alt="Card image cap">
+    <div class ="card-body">
+    <h5 class ="card-text"> VAIL</h5>
+    
+    <h1 class ="card-text">5</h1>
+  </div> -->
+  
+  
+
+               
+               <%
+                
+                if(stuff){
+                var nam= '';
+                var good = '';
+                var count =1;
+                var mountaincountarray=0;
+                stuff.forEach(function(item){
+                var idcount ="button0"+count;
+                var idcountwc ="'button0"+count+"'";
+                var numcount = "'number0" +count+"'";
+                var image = "../resources/img/" +item.img;
+                var days = mountain_array[mountaincountarray];
+                
+                var hh = '<input type="hidden" id="user_id" name="username" value="'+ user_name+'">';
+        
+                good='<form action= "/add_mtn"><button class="w3-button w3-xlarge w3-circle w3-black w3-right" ><i class="fas fa-mountain"></i>'+hh +'</form>';
+
+
+                  console.log(pic);
+                //ADD if statement... if (days !=0)....
+                if (days !=0){
+                  nam += '<div class="card" id=' +idcount+' style="vertical-align: middle" > <img class="card-img-top" src='+ image+'> <div id ="appe" class=" w3-display-bottomright"  style="z-index: 10"><form action= "/main_page/plus" method="post"><button class="w3-button w3-xlarge w3-circle w3-white w3-right" ><i class="fas fa-plus"></i></button><input type="hidden" id="mountain_id" name="mountain_id" value="'+ item.id+'"><input type="hidden" id="user_id" name="username" value="'+ user_name+'"><input type="hidden" id="ski_id" name="skidays" value="'+ days+'"></form></div><div id ="appe" class="  w3-display-bottomleft" style="z-index: 10" ><form action= "/main_page/minus" method="post"><button class="w3-button w3-xlarge w3-circle w3-white w3-left" ><i class="fas fa-minus"></i></button><input type="hidden" id="mountain_id" name="mountain_id" value="'+ item.id+'"><input type="hidden" id="user_id" name="username" value="'+ user_name+'"><input type="hidden" id="ski_id" name="skidays" value="'+ days+'"></form></div><div class ="card-body"><h1 id='+numcount+' style="vertical-align: center" class="card-text">'+days+'</h1></div></div>'
+                }
+                else {
+
+                }
+                
+                
+                count++;
+                mountaincountarray++;
+
+                });
+                //console.log(person)
+                console.log(pic);
+                console.log("person:::" +user_name);
+                var stock=pic;
+                %>
+                <%-nam %>
+                <%-good%>
+                <%}%>
+            
+
+  
+
+  </div>
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+var modal;
+
+function rem(kev){
+
+  var parent = document.getElementById("main");
+  var child = document.getElementById(kev);
+  parent.removeChild(child);
+
+}
+function rembutton(kev){
+  var parent = document.getElementById("main");
+  var child = document.getElementById(kev);
+  parent.removeChild(child);
+}
+
+function add(kev){
+  var count = document.getElementById(kev).innerHTML;
+  console.log(count)
+  count1 = Number(count);
+  count1++;
+  document.getElementById(kev).innerHTML = count1;
+}
+function sub(kev){
+  var count = document.getElementById(kev).innerHTML;
+  console.log(count)
+  count1 = Number(count);
+  count1--;
+  document.getElementById(kev).innerHTML = count1;
+}
+
+
+
+var counter = <%=count%>;
+function myFunction() {
+  var txt;
+  var person = prompt("Please enter Mountain:", "...");
+  if (person == null || person == "") {
+    txt = "User cancelled the prompt.";
+  } else {
+    txt = person.toUpperCase();
+    var string ="ID0" +counter;
+  var borderid="border0"+counter;
+  var buttonID = "button0" + counter;
+  var num = "number0" +counter;
+
+
+  //button
+  var button  = document.createElement("button");
+  button.setAttribute("class","card");
+  button.setAttribute("id" , buttonID)
+  button.setAttribute("style","vertical-align:middle");
+  
+  var span = document.createElement('h5');
+  //span.textContent = "Modal " +string;
+  //span.setAttribute("class","boxed")
+  span.setAttribute("class","card-text");
+  span.textContent = txt;
+  
+  var exit = document.createElement('div');
+  exit.setAttribute("id","appe");
+  exit.setAttribute("class","w3-button w3-circle w3-hover-red w3-display-topright");
+  exit.setAttribute("style","z-index:10");
+  exit.innerHTML = "&times;";
+  exit.onclick = function() {rem(buttonID)};
+
+  var plus = document.createElement('div');
+  plus.setAttribute("id","appe");
+  plus.setAttribute("class","w3-button w3-circle w3-display-bottomright");
+  plus.setAttribute("style","z-index:10");
+  plus.innerHTML = "&plus;";
+  plus.onclick = function() {add(num)};
+
+  var minus = document.createElement('div');
+  minus.setAttribute("id","appe")
+  minus.setAttribute("class","w3-button w3-circle w3-display-bottomleft");
+  minus.setAttribute("style","z-index:10");
+  minus.innerHTML = "&#8722;";
+  minus.onclick = function() {sub(num)};
+
+  var number = document.createElement('h1');
+  number.setAttribute("id",num);
+  number.setAttribute("style","vertical-align:center");
+  number.setAttribute("class","card-text")
+  number.innerHTML = "1";
+  
+  var image = document.createElement('img');
+  image.setAttribute("class","card-img-top");
+  image.setAttribute("src","../resources/img/breckenridge.png");
+
+  var body= document.createElement('div');
+  body.setAttribute("class","card-body");
+
+
+  button.appendChild(image);
+  button.appendChild(minus);
+  button.appendChild(plus);
+  button.appendChild(exit);
+  body.appendChild(span);
+  body.appendChild(number);
+  button.appendChild(body);
+  document.getElementById("main").appendChild(button);
+  counter++;
+    
+  }
+  
+  
+  
+}
+  
+
+
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
