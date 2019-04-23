@@ -1,0 +1,53 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="weatherproject.css">
+
+<div class="popup-overlay">
+
+ <div class="popup-content">
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+	<p id = sky> Skies: clear </p>
+	<p id = windSpeed> Wind Speed: 15 </p>  
+    <button class="close">Close</button>    
+</div>
+</div>
+
+<h2>Click!</h2>
+<button class="open">Open</button>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+<script>
+
+$(".open").on("click", function(){
+  $(".popup-overlay, .popup-content").addClass("active");
+});
+
+$(".close, .popup-overlay").on("click", function(){
+  $(".popup-overlay, .popup-content").removeClass("active");
+});
+
+	$(document).ready(function() {
+		var url ='https://api.darksky.net/forecast/26d6b2133c94205d0ebc3983003ddc8e/39.5066,-106.1422'; 
+			$.ajax({url:url, dataType:"jsonp"}).then(function(data) {
+				var current_temp = data.currently.apparentTemperature;
+				var summary = data.daily.summary;
+				var winds = data.currently.windSpeed;
+				var skies = data.currently.summary;
+				console.log(data);
+
+				ctemp.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+				sum.innerHTML = ("Summary: " + summary);
+				windSpeed.innerHTML = ("Wind Speed: " + winds + " mph");
+				sky.innerHTML = ("Skies: " + skies);
+
+		})
+	})
+</script>
+ </html>
