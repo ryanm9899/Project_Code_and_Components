@@ -23,18 +23,29 @@ var pgp = require('pg-promise')();
   password: This the password for accessing the database.  You'll need to set a password USING THE PSQL TERMINAL THIS IS NOT A PASSWORD FOR POSTGRES USER ACCOUNT IN LINUX!
 **********************/
 const dbConfig = {
-  host: 'localhost',
-  port: 5432,
-  database: 'test_db',
-  user: 'postgres',
-  password: '123'
+	host: 'localhost',
+	port: 5432,
+	database: 'test_db',
+	user: 'postgres',
+	password: '123'
 };
 
-var db = pgp(dbConfig);
+const dbConfig_heroku = process.env.DATABASE_URL;
+
+var db = ''
+if(dbConfig_heroku){
+  db = pgp(dbConfig_heroku);
+}else{
+  db = pgp(dbConfig);
+}
+
 var id = '';
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
+
+
+
 
 app.get('/main_page', function(req, res) {
 
@@ -368,7 +379,7 @@ app.get('/login_main', function(req, res) {
             res.render('pages/login_main',{
         my_title: "login",
         data: rows,
-        user_info: ''
+        user_info: 'init'
       })
         })
         .catch(function (err) {
@@ -381,6 +392,13 @@ app.get('/login_main', function(req, res) {
             })
         })
 });
+
+// app.get('/update_db', function(req,res){
+//   var likes = req.query.likes;
+
+
+// });
+
 
 app.post('/login_main/add', function(req, res) {
   var user = req.body.username;
@@ -420,5 +438,7 @@ app.post('/login_main/add', function(req, res) {
 /*Add your other get/post request handlers below here: */
 
 
-app.listen(3000);
-console.log('3000 is the magic port');
+app.listen(process.env.PORT||3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+//console.log('3000 is the magic port : ' +process.env.PORT );

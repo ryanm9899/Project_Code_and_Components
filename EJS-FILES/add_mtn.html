@@ -58,7 +58,7 @@
  <body style="background-color: #262626; color: white;font-family: 'Ubuntu', sans-serif;">
   <div class="container">
     <div class ="jumbotron" style="background-color: #666666"> 
-    <h1 class = "display-4">Login</h1>
+    <h1 class = "display-4">Add Mountain</h1>
     <p id= "authenticate"class = "lead">
      
       Please select mountain you wish to add. 
@@ -72,7 +72,7 @@
       <form class="form" action="/add_mtn/add" method="get">
         <input type="hidden" id="user_id" name="username" value="<%-user_name%>">
             <select class="custom-select" name="mountain_choice" onchange="this.form.submit()">
-               
+               <option selected>SELECT MTN</option>
                
                <%
                 console.log(stuff);
@@ -88,7 +88,7 @@
 </form>
       
   </div>
-</div>
+<div class="row justify-content-md-center" >
   <%
                 console.log(stuff);
                 
@@ -97,20 +97,20 @@
                 console.log(user_name);
                 var image = "../resources/img/" +pic;
 
-                card += '<div class="card" style="vertical-align: middle;text-align: center;background-color: black;" > <img class="card-img-top" src='+ image+'> <h1 style="vertical-align: center" class="card-text">1</h1></div>';
+                card += '<div class="col-md-auto"><div class="card" style="vertical-align: middle;text-align: center;background-color: white;" > <img class="card-img-top" src='+ image+' alt="  "> <h1 style="vertical-align: center" class="card-text">1</h1></div></div></div>';
                 
 
                 var hh = '<input type="hidden" id="user_id" name="username" value="'+ user_name+'">';
                 var hhh = '<input type="hidden" id="user_id" name="mountain_choice" value="'+ mount+'">';
         
-                var button='<p style="color: green;"> Account Verified.  </p> <br><form action= "/main_page/addition" method="post"><button type="submit" style="background-color:green;color:white;" class="btn btn-default">ADD  ' + mountain_array+'</button>'+hh+hhh +'</form>';
+                var button='<div class="row justify-content-md-center" ><div class="col-md-auto"><form action= "/main_page/addition" method="post"><button type="submit" style="background-color:green;color:white;" class="btn btn-default">ADD  ' + mountain_array+'</button>'+hh+hhh +'</form></div></div>';
                 %>
                 <%-card %>
                 <%-button %>
                 <%}%>
 
 
-        
-      
+  
+  </div>    
  </body>
 </html>

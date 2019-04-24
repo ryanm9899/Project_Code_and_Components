@@ -1,5 +1,5 @@
 
-CREATE TABLE mountains(id SERIAL PRIMARY KEY, mountain VARCHAR(50), img VARCHAR(200));
+CREATE TABLE mountains(id SERIAL PRIMARY KEY, mountain VARCHAR(50), img VARCHAR(200), location VARCHAR(200));
 
 CREATE TABLE IF NOT EXISTS login_info (
 id SERIAL PRIMARY KEY, username VARCHAR(20) unique, password VARCHAR(20), mountain_list int[]);

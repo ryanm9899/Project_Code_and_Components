@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>SKI BASE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+
+
+
 
 <style type="text/css">
+
+
+
+
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 200ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: white;
+  opacity: .8;
+  border-radius: 5px;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transition: all .1s ease-in-out;
+  z-index: 10;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 90%;
+  color:black;
+  overflow: auto;
+  font-family: 'Karla', sans-serif;
+
+}
+.popup .pic{
+  height: 200px;
+  width:200px;
+  position: absolute;
+  top: 10px;
+  left:10px;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
   body {
     font-family: 'Julius Sans One';
     
@@ -16,13 +125,10 @@
   body, html {
   height: 100%;
   }
-  .boxed{
-    border:1px solid black;
-
-  }
+  
   .hero-image { 
   /* The image used */
-  background-image: url("../resources/img/mountains.jpg");
+  background-image: url("../resources/img/m_skiier.jpg");
 
   /* Full height */
   height: 100%; 
@@ -34,6 +140,9 @@
 }
    p{
     color:black;
+    font-family: 'Julius Sans One';
+
+
    }
 .card {
   display: inline-block;
@@ -50,6 +159,26 @@
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+ z-index: 5;
+
+
+}
+#tot {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+  opacity: .9;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  height:90px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Merriweather Sans', sans-serif;
 
 
 }
@@ -86,12 +215,179 @@
 
 <body>
 <div class='hero-image'>
-<div id="main" class="w3-container">
+<div class="w3-container">
   
-  <h2>Ski Slopes</h2>
-   
+  <h1>Your Mountains...</h1>
+  
+<% var pop=''; 
+  stuff.forEach(function(item){
+  pop+= '<div class="container"><div id="popup'+item.id+'" class="overlay" style="z-index: 9"><div class="popup"><h2 style="text-align: center">'+item.mountain+'</h2><a class="close" href="#">&times;</a><div class="row"><div class="col"><img class="pic" id="icon'+item.id+'" src="" alt="Card image cap"></div><div class="col-6"><div class="content" style="color:white;z-index: 10"><p id = "ctemp'+item.id+'"> I AM  </p><p id = "sum'+item.id+'"> CHEAP </p><p id = "sky'+item.id+'"> AND NOT PAYING </p><p id = "windSpeed'+item.id+'"> FOR MORE API CALLS ;) </p></div></div></div></div></div></div>'
+});%>
+<%-pop%>
+
+<!-- <div id="popup1" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>A-BASIN</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup2" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>ASPEN</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup3" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>BEAVER CREEK</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup4" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>BRECKENRIDGE</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup5" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>COPPER</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup6" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>KEYSTONE</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup7" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>LOVELAND</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup8" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>STEAMBOAT</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup9" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>TELLURIDE</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup10" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>VAIL</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div>
+<div id="popup11" class="overlay" style="z-index: 9">
+  <div class="popup">
+    <h2>WINTER PARK</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content" style="color:white;z-index: 10">
+      
+    <h2>Weather</h2>
+    <p id = ctemp> Current Temperature: 20 </p>
+    <p id = sum> Summary: Info </p>
+    <p id = sky> Skies: clear </p>
+    <p id = windSpeed> Wind Speed: 15 </p>  
+    </div>
+  </div>
+</div> -->
 
 
+   <% 
+      var hh = '<input type="hidden" id="user_id" name="username" value="'+ user_name+'">';
+        
+      good='<div class ="w3-display-topright w3-padding-large"> <form action= "/add_mtn"><button class="w3-button w3-xlarge w3-circle w3-black "  ><i class="fas fa-mountain"></i></button>'+hh +'</form></div>'; 
+
+        %>
+        <%-good%>
   
 
   
@@ -115,23 +411,24 @@
                 var nam= '';
                 var good = '';
                 var count =1;
+                var total_days=0;
                 var mountaincountarray=0;
+                
                 stuff.forEach(function(item){
                 var idcount ="button0"+count;
                 var idcountwc ="'button0"+count+"'";
                 var numcount = "'number0" +count+"'";
                 var image = "../resources/img/" +item.img;
                 var days = mountain_array[mountaincountarray];
+                total_days+=days;
                 
-                var hh = '<input type="hidden" id="user_id" name="username" value="'+ user_name+'">';
-        
-                good='<form action= "/add_mtn"><button class="w3-button w3-xlarge w3-circle w3-black w3-right" ><i class="fas fa-mountain"></i>'+hh +'</form>';
 
 
                   console.log(pic);
                 //ADD if statement... if (days !=0)....
                 if (days !=0){
-                  nam += '<div class="card" id=' +idcount+' style="vertical-align: middle" > <img class="card-img-top" src='+ image+'> <div id ="appe" class=" w3-display-bottomright"  style="z-index: 10"><form action= "/main_page/plus" method="post"><button class="w3-button w3-xlarge w3-circle w3-white w3-right" ><i class="fas fa-plus"></i></button><input type="hidden" id="mountain_id" name="mountain_id" value="'+ item.id+'"><input type="hidden" id="user_id" name="username" value="'+ user_name+'"><input type="hidden" id="ski_id" name="skidays" value="'+ days+'"></form></div><div id ="appe" class="  w3-display-bottomleft" style="z-index: 10" ><form action= "/main_page/minus" method="post"><button class="w3-button w3-xlarge w3-circle w3-white w3-left" ><i class="fas fa-minus"></i></button><input type="hidden" id="mountain_id" name="mountain_id" value="'+ item.id+'"><input type="hidden" id="user_id" name="username" value="'+ user_name+'"><input type="hidden" id="ski_id" name="skidays" value="'+ days+'"></form></div><div class ="card-body"><h1 id='+numcount+' style="vertical-align: center" class="card-text">'+days+'</h1></div></div>'
+                  
+                  nam += '<div class="card" id=' +idcount+' style="vertical-align: middle" > <img class="card-img-top" src='+ image+'> <div id ="appe" class=" w3-display-topright"  style="z-index: 10"><button id="myBtn" class="w3-button w3-xlarge w3-circle w3-white w3-right" ><a href="#popup'+count+'"><i class="fas fa-cloud-sun"></i></a></button></div><div id ="appe" class=" w3-display-bottomright"  style="z-index: 10"><form action= "/main_page/plus" method="post"><button class="w3-button w3-xlarge w3-circle w3-white w3-right" ><i class="fas fa-plus"></i></button><input type="hidden" id="mountain_id" name="mountain_id" value="'+ item.id+'"><input type="hidden" id="user_id" name="username" value="'+ user_name+'"><input type="hidden" id="ski_id" name="skidays" value="'+ days+'"></form></div><div id ="appe" class="  w3-display-bottomleft" style="z-index: 10" ><form action= "/main_page/minus" method="post"><button class="w3-button w3-xlarge w3-circle w3-white w3-left" ><i class="fas fa-minus"></i></button><input type="hidden" id="mountain_id" name="mountain_id" value="'+ item.id+'"><input type="hidden" id="user_id" name="username" value="'+ user_name+'"><input type="hidden" id="ski_id" name="skidays" value="'+ days+'"></form></div><div class ="card-body"><h1 id='+numcount+' style="vertical-align: center" class="card-text">'+days+'</h1></div></div>'
                 }
                 else {
 
@@ -148,127 +445,367 @@
                 var stock=pic;
                 %>
                 <%-nam %>
-                <%-good%>
+                
                 <%}%>
             
 
-  
-
+  <div id = "tot" class="w3-display-bottommiddle">Total Days:  <%-total_days%></div>
+<form action="/login" method ="get">
+        <div class="w3-display-bottomright">
+            <button type="submit" style="background-color:white;color:black;" class="btn btn-default">Logout</button>
+        </div>
+</form>
   </div>
   </div>
 </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
-var modal;
+// var modal = document.getElementById('myModal');
 
-function rem(kev){
+// // Get the button that opens the modal
+// var btn = document.getElementsByClassName("myBtn");
 
-  var parent = document.getElementById("main");
-  var child = document.getElementById(kev);
-  parent.removeChild(child);
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
 
-}
-function rembutton(kev){
-  var parent = document.getElementById("main");
-  var child = document.getElementById(kev);
-  parent.removeChild(child);
-}
+// // When the user clicks the button, open the modal 
+// btn[0].onclick = function() {
+//   modal.style.display = "block";
+// };
 
-function add(kev){
-  var count = document.getElementById(kev).innerHTML;
-  console.log(count)
-  count1 = Number(count);
-  count1++;
-  document.getElementById(kev).innerHTML = count1;
-}
-function sub(kev){
-  var count = document.getElementById(kev).innerHTML;
-  console.log(count)
-  count1 = Number(count);
-  count1--;
-  document.getElementById(kev).innerHTML = count1;
-}
+// btn[1].onclick = function() {
+//   modal.style.display = "block";
+// };
+// btn[2].onclick = function() {
+//   modal.style.display = "block";
+// };
 
+// btn[3].onclick = function() {
+//   modal.style.display = "block";
+// };
+// btn[4].onclick = function() {
+//   modal.style.display = "block";
+// };
 
+// btn[5].onclick = function() {
+//   modal.style.display = "block";
+// };
+// btn[6].onclick = function() {
+//   modal.style.display = "block";
+// };
 
-var counter = <%=count%>;
-function myFunction() {
-  var txt;
-  var person = prompt("Please enter Mountain:", "...");
-  if (person == null || person == "") {
-    txt = "User cancelled the prompt.";
-  } else {
-    txt = person.toUpperCase();
-    var string ="ID0" +counter;
-  var borderid="border0"+counter;
-  var buttonID = "button0" + counter;
-  var num = "number0" +counter;
+// btn[7].onclick = function() {
+//   modal.style.display = "block";
+// };
+// btn[8].onclick = function() {
+//   modal.style.display = "block";
+// };
 
+// btn[9].onclick = function() {
+//   modal.style.display = "block";
+// };
+// btn[10].onclick = function() {
+//   modal.style.display = "block";
+// };
 
-  //button
-  var button  = document.createElement("button");
-  button.setAttribute("class","card");
-  button.setAttribute("id" , buttonID)
-  button.setAttribute("style","vertical-align:middle");
+// btn[11].onclick = function() {
+//   modal.style.display = "block";
+// };
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
+$(document).ready(function() {
   
-  var span = document.createElement('h5');
-  //span.textContent = "Modal " +string;
-  //span.setAttribute("class","boxed")
-  span.setAttribute("class","card-text");
-  span.textContent = txt;
+
+      
   
-  var exit = document.createElement('div');
-  exit.setAttribute("id","appe");
-  exit.setAttribute("class","w3-button w3-circle w3-hover-red w3-display-topright");
-  exit.setAttribute("style","z-index:10");
-  exit.innerHTML = "&times;";
-  exit.onclick = function() {rem(buttonID)};
+      var url1 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.6423,-105.8717'
+      $.ajax({url:url1, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+        
+        document.getElementById("ctemp1").innerHTML = "Current Temperature: " + current_temp + " degrees Fahrenheit";
+        document.getElementById("sum1").innerHTML = ("Summary: " + summary);
+        document.getElementById("windSpeed1").innerHTML = ("Wind Speed: " + winds + " mph");
+        document.getElementById("sky1").innerHTML = ("Skies: " + skies);
+        
+        document.getElementById("icon1").src = img;
 
-  var plus = document.createElement('div');
-  plus.setAttribute("id","appe");
-  plus.setAttribute("class","w3-button w3-circle w3-display-bottomright");
-  plus.setAttribute("style","z-index:10");
-  plus.innerHTML = "&plus;";
-  plus.onclick = function() {add(num)};
+    })
+      var url2 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.1823,-106.8555'
+      $.ajax({url:url2, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
 
-  var minus = document.createElement('div');
-  minus.setAttribute("id","appe")
-  minus.setAttribute("class","w3-button w3-circle w3-display-bottomleft");
-  minus.setAttribute("style","z-index:10");
-  minus.innerHTML = "&#8722;";
-  minus.onclick = function() {sub(num)};
-
-  var number = document.createElement('h1');
-  number.setAttribute("id",num);
-  number.setAttribute("style","vertical-align:center");
-  number.setAttribute("class","card-text")
-  number.innerHTML = "1";
+        ctemp2.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum2.innerHTML = ("Summary: " + summary);
+        windSpeed2.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky2.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon2").src = img;
   
-  var image = document.createElement('img');
-  image.setAttribute("class","card-img-top");
-  image.setAttribute("src","../resources/img/breckenridge.png");
+      })
+      var url3 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.6042,-106.5165'
+      $.ajax({url:url3, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
 
-  var body= document.createElement('div');
-  body.setAttribute("class","card-body");
+        ctemp3.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum3.innerHTML = ("Summary: " + summary);
+        windSpeed3.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky3.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon3").src = img;
+  
+      })
+      var url4 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.4817,-106.0384'
+      $.ajax({url:url4, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
 
+         
+        ctemp4.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum4.innerHTML = ("Summary: " + summary);
+        windSpeed4.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky4.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon4").src = img;
 
-  button.appendChild(image);
-  button.appendChild(minus);
-  button.appendChild(plus);
-  button.appendChild(exit);
-  body.appendChild(span);
-  body.appendChild(number);
-  button.appendChild(body);
-  document.getElementById("main").appendChild(button);
-  counter++;
+        })
+      var url5 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.5066,-106.1422'
+      $.ajax({url:url5, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp5.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum5.innerHTML = ("Summary: " + summary);
+        windSpeed5.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky5.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon5").src = img;
+        })
+      var url6 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.6084,-105.9437'
+      $.ajax({url:url6, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp6.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum6.innerHTML = ("Summary: " + summary);
+        windSpeed6.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky6.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon6").src = img;
+        })
+      var url7 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/40.3978,-107.0750'
+      $.ajax({url:url7, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp7.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum7.innerHTML = ("Summary: " + summary);
+        windSpeed7.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky7.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon7").src = img;
+        })
+      var url8 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/40.4850,-106.8317'
+      $.ajax({url:url8, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp8.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum8.innerHTML = ("Summary: " + summary);
+        windSpeed8.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky8.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon8").src = img;
+        })
+      var url9 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/37.9375,-107.8123'
+      $.ajax({url:url9, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp9.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum9.innerHTML = ("Summary: " + summary);
+        windSpeed9.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky9.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon9").src = img;
+        })
+      var url10 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.6403,-106.3742'
+      $.ajax({url:url10, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp10.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum10.innerHTML = ("Summary: " + summary);
+        windSpeed10.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky10.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon10").src = img;
+        })
+      var url11 = 'https://api.darksky.net/forecast/d91af23b41c66d9a80c372f90b5974bc/39.8917,-105.7631'
+      $.ajax({url:url11, dataType:"jsonp"}).then(function(data) {
+        var current_temp = data.currently.apparentTemperature;
+        var summary = data.daily.summary;
+        var winds = data.currently.windSpeed;
+        var skies = data.currently.summary;
+        var img = "../resources/img/" +data.currently.icon +".png";
+         
+        ctemp11.innerHTML = ("Current Temperature: " + current_temp + " degrees Fahrenheit");
+        sum11.innerHTML = ("Summary: " + summary);
+        windSpeed11.innerHTML = ("Wind Speed: " + winds + " mph");
+        sky11.innerHTML = ("Skies: " + skies);
+        document.getElementById("icon11").src = img;
+        })
     
-  }
+  
+         
+      
+     
+    })
+
+// function rem(kev){
+
+//   var parent = document.getElementById("main");
+//   var child = document.getElementById(kev);
+//   parent.removeChild(child);
+
+// }
+// function rembutton(kev){
+//   var parent = document.getElementById("main");
+//   var child = document.getElementById(kev);
+//   parent.removeChild(child);
+// }
+
+// function add(kev){
+//   var count = document.getElementById(kev).innerHTML;
+//   console.log(count)
+//   count1 = Number(count);
+//   count1++;
+//   document.getElementById(kev).innerHTML = count1;
+// }
+// function sub(kev){
+//   var count = document.getElementById(kev).innerHTML;
+//   console.log(count)
+//   count1 = Number(count);
+//   count1--;
+//   document.getElementById(kev).innerHTML = count1;
+// }
+
+
+
+// var counter = <%=count%>;
+// function myFunction() {
+//   var txt;
+//   var person = prompt("Please enter Mountain:", "...");
+//   if (person == null || person == "") {
+//     txt = "User cancelled the prompt.";
+//   } else {
+//     txt = person.toUpperCase();
+//     var string ="ID0" +counter;
+//   var borderid="border0"+counter;
+//   var buttonID = "button0" + counter;
+//   var num = "number0" +counter;
+
+
+//   //button
+//   var button  = document.createElement("button");
+//   button.setAttribute("class","card");
+//   button.setAttribute("id" , buttonID)
+//   button.setAttribute("style","vertical-align:middle");
+  
+//   var span = document.createElement('h5');
+//   //span.textContent = "Modal " +string;
+//   //span.setAttribute("class","boxed")
+//   span.setAttribute("class","card-text");
+//   span.textContent = txt;
+  
+//   var exit = document.createElement('div');
+//   exit.setAttribute("id","appe");
+//   exit.setAttribute("class","w3-button w3-circle w3-hover-red w3-display-topright");
+//   exit.setAttribute("style","z-index:10");
+//   exit.innerHTML = "&times;";
+//   exit.onclick = function() {rem(buttonID)};
+
+//   var plus = document.createElement('div');
+//   plus.setAttribute("id","appe");
+//   plus.setAttribute("class","w3-button w3-circle w3-display-bottomright");
+//   plus.setAttribute("style","z-index:10");
+//   plus.innerHTML = "&plus;";
+//   plus.onclick = function() {add(num)};
+
+//   var minus = document.createElement('div');
+//   minus.setAttribute("id","appe")
+//   minus.setAttribute("class","w3-button w3-circle w3-display-bottomleft");
+//   minus.setAttribute("style","z-index:10");
+//   minus.innerHTML = "&#8722;";
+//   minus.onclick = function() {sub(num)};
+
+//   var number = document.createElement('h1');
+//   number.setAttribute("id",num);
+//   number.setAttribute("style","vertical-align:center");
+//   number.setAttribute("class","card-text")
+//   number.innerHTML = "1";
+  
+//   var image = document.createElement('img');
+//   image.setAttribute("class","card-img-top");
+//   image.setAttribute("src","../resources/img/breckenridge.png");
+
+//   var body= document.createElement('div');
+//   body.setAttribute("class","card-body");
+
+
+//   button.appendChild(image);
+//   button.appendChild(minus);
+//   button.appendChild(plus);
+//   button.appendChild(exit);
+//   body.appendChild(span);
+//   body.appendChild(number);
+//   button.appendChild(body);
+//   document.getElementById("main").appendChild(button);
+//   counter++;
+    
+//   }
   
   
   
-}
+//}
   
 
 
@@ -276,11 +813,7 @@ function myFunction() {
 
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+
 </script>
 
 </body>
