@@ -1,2 +1,2 @@
 # Project_Code_and_Components
-Project code and components
+Project Description: We made an app that makes it easy to track days you've been skiing this year. You can track your number of ski trips to the 10 most popular ski resorts in colorado, and its all stored on one easy to see homepage. You can add and subtract days visited, and you have a total trips counter that tracks your trips across all 10 ski resorts. You can also check out the current weather at each ski resort by clicking the weather button on the top right of each ski resorts card.
